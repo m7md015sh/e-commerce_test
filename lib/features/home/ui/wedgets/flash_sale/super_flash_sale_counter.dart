@@ -3,14 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 
 class FlashSaleWidget extends StatelessWidget {
-  const FlashSaleWidget({Key? key}) : super(key: key);
+  const FlashSaleWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     // Set the end time for the countdown timer
     int endTime = DateTime.now().millisecondsSinceEpoch + 1000 * 30 * 60; // 30 minutes from now
 
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 200.h, // Adjust the height as needed
       child: Stack(

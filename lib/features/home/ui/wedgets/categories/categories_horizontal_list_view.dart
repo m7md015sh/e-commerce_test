@@ -3,12 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test1/features/home/ui/wedgets/categories/categories_item.dart';
 
 class CategoriesWidget extends StatelessWidget {
+  const CategoriesWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 12,),
       child: SizedBox(
-        height: 40.h, // ارتفاع الكارد بالإضافة لبعض المساحة الفارغة
+        height: 40.h,
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: [
@@ -36,7 +38,6 @@ class CategoriesWidget extends StatelessWidget {
               text: 'children',
               icon: Icons.child_care_sharp,
             ),
-
           ],
         ),
       ),

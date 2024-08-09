@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test1/core/colors.dart';
+import 'package:test1/features/home/ui/wedgets/description_product.dart';
 
 class PopularProductCard extends StatelessWidget {
   @override
@@ -11,8 +13,13 @@ class PopularProductCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: Container(
-        decoration: BoxDecoration(border: Border.all(color: ColorsManager.lighterGray,width: 1,),borderRadius: BorderRadius.circular(16.0)),
-        width: 250, // يمكن تعديل العرض حسب الحاجة
+        decoration: BoxDecoration(
+            border: Border.all(
+              color: ColorsManager.lighterGray,
+              width: 1,
+            ),
+            borderRadius: BorderRadius.circular(16.0)),
+        width: 250,
         padding: EdgeInsets.all(8.0),
         child: Row(
           children: [
@@ -32,7 +39,8 @@ class PopularProductCard extends StatelessWidget {
                     top: 8,
                     right: 8,
                     child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                       decoration: BoxDecoration(
                         color: Colors.red,
                         borderRadius: BorderRadius.circular(10.0),
@@ -67,12 +75,10 @@ class PopularProductCard extends StatelessWidget {
                   SizedBox(height: 4.0),
                   Text(
                     'Mountain Warehouse for ...',
-
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 14.0,
                       fontWeight: FontWeight.bold,
-
                       overflow: TextOverflow.ellipsis,
                     ),
                     maxLines: 2,
@@ -90,7 +96,7 @@ class PopularProductCard extends StatelessWidget {
                       ),
                       SizedBox(width: 8.0),
                       Text(
-                        '\$540.0',
+                        '\$410.0',
                         style: TextStyle(
                           color: Colors.grey,
                           fontSize: 11.0,
@@ -101,7 +107,7 @@ class PopularProductCard extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
+            )
           ],
         ),
       ),

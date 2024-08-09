@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:test1/features/auth/widgets/stack_image_auth.dart';
-import 'package:test1/home_view.dart';
+import 'package:test1/features/home/ui/home_view.dart';
 import 'package:test1/features/auth/sign_up_screen.dart';
 
 import 'widgets/custom_text_field.dart';

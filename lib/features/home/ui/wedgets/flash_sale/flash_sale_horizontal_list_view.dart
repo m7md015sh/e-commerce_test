@@ -6,6 +6,8 @@ import 'package:test1/features/home/ui/wedgets/flash_sale/flash_sale_item.dart';
 
 
 class FlashSaleListView extends StatelessWidget {
+  const FlashSaleListView({super.key});
+
 
   @override
   Widget  build(BuildContext context) {
