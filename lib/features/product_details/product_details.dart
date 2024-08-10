@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test1/core/colors.dart';
+import 'package:test1/features/home/ui/wedgets/popular_products/horizontal_popular_priduct_list.dart';
+import 'package:test1/features/home/ui/wedgets/text_before_section.dart';
 import 'package:test1/features/product_details/details_cubit/details_cubit.dart';
 import 'package:test1/features/product_details/details_cubit/details_state.dart';
 import 'package:test1/features/product_details/wedgits/dialogName.dart';
@@ -103,9 +106,21 @@ class ProductDetailsPage extends StatelessWidget {
                   DialogName(title: 'Shopping Information', icon: Icons.directions_bus),
                   DialogName(title: 'Returns', icon: Icons.backpack_outlined),
 
-                  RatingSummaryWidget(averageRating: 3.4, totalReviews: 5, ratingsDistribution: [0,0.1,0.2,0.3,0.8])
+                  RatingSummaryWidget(averageRating: 3.4, totalReviews: 5, ratingsDistribution: [0,0.1,0.2,0.3,0.8]),
+                  LineSpaceWidget(),
+                  DialogName(title: 'Reviews', icon: Icons.comment),
+                  /*===================================Similar Products Section==========================================*/
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextBeforeSection(text: 'Similar Products')),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 16.0),
+                    child: HorizontalProductList(),
+                  ),
 
-              ],
+                  /*===================================Similar Products Section==========================================*/
+
+                ],
               ),
             );
           },
