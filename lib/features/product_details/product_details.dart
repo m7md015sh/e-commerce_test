@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test1/core/colors.dart';
 import 'package:test1/features/product_details/details_cubit/details_cubit.dart';
 import 'package:test1/features/product_details/details_cubit/details_state.dart';
+import 'package:test1/features/product_details/wedgits/dialogName.dart';
+import 'package:test1/features/product_details/wedgits/line_space.dart';
 import 'package:test1/features/product_details/wedgits/product_info_widget.dart';
 
 class ProductDetailsPage extends StatelessWidget {
@@ -93,7 +96,13 @@ class ProductDetailsPage extends StatelessWidget {
                       reviewsCount: 4,
                       description: 'Crafted from soft cotton for an effortless feel, this Calvin Klein t-shirt features an oversized monogram logo for an iconic, retro-inspired look. Detailed with a crewneck, a straight hem and twin-needle topstitching in a wide array of colors.',
                   ),
-                ],
+
+                  LineSpaceWidget(),
+                  DialogName(title: 'Product Details', icon: Icons.shopping_bag),
+                  DialogName(title: 'Shopping Information', icon: Icons.directions_bus),
+                  DialogName(title: 'Returns', icon: Icons.backpack_outlined),
+
+              ],
               ),
             );
           },
