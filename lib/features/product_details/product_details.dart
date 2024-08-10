@@ -6,6 +6,7 @@ import 'package:test1/features/product_details/details_cubit/details_state.dart'
 import 'package:test1/features/product_details/wedgits/dialogName.dart';
 import 'package:test1/features/product_details/wedgits/line_space.dart';
 import 'package:test1/features/product_details/wedgits/product_info_widget.dart';
+import 'package:test1/features/product_details/wedgits/rating_summary.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   @override
@@ -101,6 +102,8 @@ class ProductDetailsPage extends StatelessWidget {
                   DialogName(title: 'Product Details', icon: Icons.shopping_bag),
                   DialogName(title: 'Shopping Information', icon: Icons.directions_bus),
                   DialogName(title: 'Returns', icon: Icons.backpack_outlined),
+
+                  RatingSummaryWidget(averageRating: 3.4, totalReviews: 5, ratingsDistribution: [0,0.1,0.2,0.3,0.8])
 
               ],
               ),

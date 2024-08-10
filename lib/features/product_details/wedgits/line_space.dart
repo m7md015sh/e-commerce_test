@@ -7,7 +7,7 @@ class LineSpaceWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return   Container(
       width:  double.infinity,
-      height:1.6,
+      height:0.8,
       color: Colors.grey,
     );
   }
