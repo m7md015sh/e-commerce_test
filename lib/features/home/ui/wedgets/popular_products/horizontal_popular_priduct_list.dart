@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test1/features/home/ui/wedgets/grid_product/product_card.dart';
+import 'package:test1/features/product_details/product_details.dart';
 
 import 'popular_product_card.dart';
 
@@ -15,7 +16,13 @@ class HorizontalProductList extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 2.0),
-            child: PopularProductCard(),
+            child: InkWell(onTap: (){
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) =>  ProductDetailsPage(),
+                ),
+              );
+            },child: PopularProductCard()),
           );
         },
       ),
