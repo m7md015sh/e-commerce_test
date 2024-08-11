@@ -17,7 +17,7 @@ class HorizontalProductList extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 2.0),
             child: InkWell(onTap: (){
-              Navigator.of(context).pushReplacement(
+              Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) =>  ProductDetailsPage(),
                 ),

@@ -1,17 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test1/core/colors.dart';
 import 'package:test1/features/home/ui/wedgets/popular_products/horizontal_popular_priduct_list.dart';
 import 'package:test1/features/home/ui/wedgets/text_before_section.dart';
 import 'package:test1/features/product_details/details_cubit/details_cubit.dart';
 import 'package:test1/features/product_details/details_cubit/details_state.dart';
 import 'package:test1/features/product_details/wedgits/dialogName.dart';
 import 'package:test1/features/product_details/wedgits/line_space.dart';
+import 'package:test1/features/product_details/wedgits/price_and_buy_now_section.dart';
 import 'package:test1/features/product_details/wedgits/product_info_widget.dart';
 import 'package:test1/features/product_details/wedgits/rating_summary.dart';
 
 class ProductDetailsPage extends StatelessWidget {
+  const ProductDetailsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -20,6 +22,8 @@ class ProductDetailsPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Product Details'),
         ),
+        bottomNavigationBar: PriceAndBuyNowSection(),
+
         body: BlocBuilder<ProductDetailsCubit, ProductDetailsState>(
           builder: (context, state) {
             int currentIndex = 0;
@@ -101,24 +105,22 @@ class ProductDetailsPage extends StatelessWidget {
                       description: 'Crafted from soft cotton for an effortless feel, this Calvin Klein t-shirt features an oversized monogram logo for an iconic, retro-inspired look. Detailed with a crewneck, a straight hem and twin-needle topstitching in a wide array of colors.',
                   ),
 
-                  LineSpaceWidget(),
+                  const LineSpaceWidget(),
                   DialogName(title: 'Product Details', icon: Icons.shopping_bag),
                   DialogName(title: 'Shopping Information', icon: Icons.directions_bus),
                   DialogName(title: 'Returns', icon: Icons.backpack_outlined),
 
-                  RatingSummaryWidget(averageRating: 3.4, totalReviews: 5, ratingsDistribution: [0,0.1,0.2,0.3,0.8]),
-                  LineSpaceWidget(),
+                  RatingSummaryWidget(averageRating: 3.4, totalReviews: 5, ratingsDistribution: const [0,0.1,0.2,0.3,0.8]),
+                  const LineSpaceWidget(),
                   DialogName(title: 'Reviews', icon: Icons.comment),
                   /*===================================Similar Products Section==========================================*/
-                  Align(
+                  const Align(
                       alignment: Alignment.centerLeft,
                       child: TextBeforeSection(text: 'Similar Products')),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 16.0),
-                    child: HorizontalProductList(),
-                  ),
+                  HorizontalProductList(),
 
                   /*===================================Similar Products Section==========================================*/
+
 
                 ],
               ),

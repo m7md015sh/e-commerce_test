@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test1/core/colors.dart';
-import 'package:test1/features/home/ui/wedgets/description_product.dart';
 
 class PopularProductCard extends StatelessWidget {
+  const PopularProductCard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -20,7 +20,7 @@ class PopularProductCard extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(16.0)),
         width: 250,
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
             Expanded(
@@ -40,12 +40,12 @@ class PopularProductCard extends StatelessWidget {
                     right: 8,
                     child: Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                          const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                       decoration: BoxDecoration(
                         color: Colors.red,
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      child: Text(
+                      child: const Text(
                         '20% off',
                         style: TextStyle(
                           color: Colors.white,
@@ -58,8 +58,8 @@ class PopularProductCard extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(width: 8.0),
-            Expanded(
+            const SizedBox(width: 8.0),
+            const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
