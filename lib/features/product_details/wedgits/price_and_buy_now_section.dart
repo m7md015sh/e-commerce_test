@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PriceAndBuyNowSection extends StatelessWidget {
   const PriceAndBuyNowSection({super.key});
@@ -12,7 +14,7 @@ class PriceAndBuyNowSection extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-                height: MediaQuery.of(context).size.height / 12,
+                height: 60.h,
                 decoration: const BoxDecoration(
                   color: Color(0xff7b61ff),
                   borderRadius: BorderRadius.only(
@@ -25,45 +27,48 @@ class PriceAndBuyNowSection extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                       Text(
                         '\$140.00',
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 18,
+                            fontSize: 13.sp,
                             fontWeight: FontWeight.w800),
                       ),
-                      const SizedBox(
-                        height: 4,
-                      ),
+                      // const SizedBox(
+                      //   height: 2,
+                      // ),
                       Text(
                         'Unit price',
                         style: TextStyle(
-                            color: Colors.grey.shade300, fontSize: 16),
+                            color: Colors.grey.shade300, fontSize: 10),
                       ),
                     ],
                   ),
                 )),
           ),
-          Container(
-              height: MediaQuery.of(context).size.height / 12,
-              decoration: const BoxDecoration(
-                color: Color(0xff6953d9),
-                borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(16.0),
-                    topRight: Radius.circular(16.0)),
-              ),
-              child: const Padding(
-                padding: EdgeInsets.only(
-                    top: 16.0, bottom: 16.0, left: 40.0, right: 40.0),
-                child: Center(
-                    child: Text(
-                  'Buy Now',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w800),
+          GestureDetector(
+            onTap: (){},
+            child: Container(
+                height: 60.h,
+                decoration: const BoxDecoration(
+                  color: Color(0xff6953d9),
+                  borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(16.0),
+                      topRight: Radius.circular(16.0)),
+                ),
+                child:  Padding(
+                  padding: EdgeInsets.only(
+                      top: 16.0, bottom: 16.0, left: 40.0, right: 40.0),
+                  child: Center(
+                      child: Text(
+                    'Buy Now',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15.sp,
+                        fontWeight: FontWeight.w800),
+                  )),
                 )),
-              ))
+          )
         ],
       ),
     );

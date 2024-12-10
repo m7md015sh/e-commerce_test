@@ -29,10 +29,10 @@ class MainPage extends StatelessWidget {
 class MainScreen extends StatelessWidget {
   final List<Widget> _screens = [
     const HomeView(),
-    CategoriesScreen(),
-    FavoritesScreen(),
-    CartScreen(),
-    ProfileScreen(),
+    const CategoriesScreen(),
+    const FavoritesScreen(),
+    const CartScreen(),
+    const ProfileScreen(),
   ];
 
    MainScreen({super.key});
@@ -41,7 +41,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-        appBar: AppBar(title: const Text('Hamada store'),actions: [
+        appBar: AppBar(title: const Text('Fashion Store'),actions: [
           IconButton(onPressed: (){}, icon: const Icon(Icons.search,)),
           IconButton(onPressed: (){}, icon: const Icon(Icons.notifications,)),
         ],),

@@ -6,6 +6,8 @@ import 'widgets/custom_text_field.dart';
 import 'widgets/stack_image_auth.dart';
 
 class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -66,7 +68,7 @@ class SignUpScreen extends StatelessWidget {
                                       decoration: TextDecoration.underline,
                                     ),
                                   ),
-                                  TextSpan(
+                                  const TextSpan(
                                     text: ' & ',
                                     style: TextStyle(
                                       color: Colors.black,

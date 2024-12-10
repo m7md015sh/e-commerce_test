@@ -64,7 +64,7 @@ class HomeView extends StatelessWidget {
               child: TextBeforeSection(text: 'All Products'),
             ),
             // Grid View
-            SliverToBoxAdapter(
+            const  SliverToBoxAdapter(
               child:  ProductGridView(),
             ),
           ],

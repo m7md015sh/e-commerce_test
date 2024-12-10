@@ -34,7 +34,7 @@ class CategoryButton extends StatelessWidget {
             text,
             style: TextStyle(
               color: isSelected ? Colors.white : Colors.black,
-              fontSize: 14.sp,
+              fontSize: 13.sp,
               fontWeight: FontWeight.bold,
             ),
           ),

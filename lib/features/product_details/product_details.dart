@@ -11,6 +11,8 @@ import 'package:test1/features/product_details/wedgits/price_and_buy_now_section
 import 'package:test1/features/product_details/wedgits/product_info_widget.dart';
 import 'package:test1/features/product_details/wedgits/rating_summary.dart';
 
+import 'wedgits/alert_dialog.dart';
+
 class ProductDetailsPage extends StatelessWidget {
   const ProductDetailsPage({super.key});
 
@@ -22,7 +24,7 @@ class ProductDetailsPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Product Details'),
         ),
-        bottomNavigationBar: PriceAndBuyNowSection(),
+        bottomNavigationBar: const PriceAndBuyNowSection(),
 
         body: BlocBuilder<ProductDetailsCubit, ProductDetailsState>(
           builder: (context, state) {
@@ -106,7 +108,7 @@ class ProductDetailsPage extends StatelessWidget {
                   ),
 
                   const LineSpaceWidget(),
-                  DialogName(title: 'Product Details', icon: Icons.shopping_bag),
+                 DialogName(title: 'Product Details', icon: Icons.shopping_bag),
                   DialogName(title: 'Shopping Information', icon: Icons.directions_bus),
                   DialogName(title: 'Returns', icon: Icons.backpack_outlined),
 

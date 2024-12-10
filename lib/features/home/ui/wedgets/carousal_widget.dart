@@ -1,13 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test1/features/home/home_cubit/carusal_cubit/carusal_cubit.dart';
 import 'package:test1/features/home/home_cubit/carusal_cubit/carusal_state.dart';
 
 
 class CarouselScreen extends StatelessWidget {
+  const CarouselScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final CarouselCubit cubit = context.read<CarouselCubit>();
@@ -18,17 +19,17 @@ class CarouselScreen extends StatelessWidget {
       body: BlocBuilder<CarouselCubit, CarousalState>(
         builder: (context, state) {
           if (state is CarousalStateLoading) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (state is CarousalStateSuccess) {
             return Stack(
               children: [
                 CarouselSlider.builder(
                   itemCount: state.products.data.banners.length,
                   options: CarouselOptions(
-                    height: 250,
+                    height: 245.h,
                     viewportFraction: 1,
                     autoPlay: true,
-                    autoPlayInterval: Duration(seconds: 4),
+                    autoPlayInterval: const Duration(seconds: 4),
                     onPageChanged: (index, reason) {
                       cubit.updateIndex(index);
                     },
@@ -37,8 +38,8 @@ class CarouselScreen extends StatelessWidget {
                     final product = state.products.data.banners[index];
                     return Container(
                       width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration: BoxDecoration(
+                      margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                      decoration: const BoxDecoration(
                         color: Colors.white,
 
                       ),
@@ -49,16 +50,16 @@ class CarouselScreen extends StatelessWidget {
                               Image.network(
                                 product.image,
                                 fit: BoxFit.cover,
-                                height: 250,
+                                height: 240.h,
                                 width: double.infinity,
                               ),
                               Positioned(
                                 top: 10,
                                 right: 10,
                                 child: Container(
-                                  padding: EdgeInsets.all(5),
+                                  padding: const EdgeInsets.all(5),
                                   color: Colors.red,
-                                  child: Text(
+                                  child: const Text(
                                     '20% off',
                                     style: TextStyle(
                                       color: Colors.white,
@@ -86,19 +87,19 @@ class CarouselScreen extends StatelessWidget {
                             return Container(
                               width: index == cubit.currentIndex ? 16.0 : 8.0, // تعديل العرض بدلاً من القطر
                               height: 8.0, // ثابت الارتفاع
-                              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                              margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
                               decoration: BoxDecoration(
                                 shape: BoxShape.rectangle, // تغيير الشكل ليصبح مستطيلاً
                                 borderRadius: BorderRadius.circular(4.0), // تعديل الحدود لتبدو مستطيلة
                                 color: index == cubit.currentIndex
-                                    ? Color.fromRGBO(0, 0, 0, 0.9)
-                                    : Color.fromRGBO(0, 0, 0, 0.4),
+                                    ? const Color.fromRGBO(0, 0, 0, 0.9)
+                                    : const Color.fromRGBO(0, 0, 0, 0.4),
                               ),
                             );
                           }),
                         );
                       } else {
-                        return SizedBox.shrink();
+                        return const SizedBox.shrink();
                       }
                     },
                   ),
@@ -108,9 +109,9 @@ class CarouselScreen extends StatelessWidget {
           } else if (state is CarousalStateFailure) {
             return Center(child: Text('Error: ${state.error}'));
           } else if (state is CarousalStateInitial) {
-            return Center(child: Text('Initial State'));
+            return const Center(child: Text('Initial State'));
           } else {
-            return Center(child: Text('Unexpected State'));
+            return const Center(child: Text('Unexpected State'));
           }
         },
       ),

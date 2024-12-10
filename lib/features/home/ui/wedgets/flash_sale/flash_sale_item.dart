@@ -8,7 +8,7 @@ class FlashSaleItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 140.w, // Adjust width as needed
+      width: 160.w, // Adjust width as needed
       margin: EdgeInsets.symmetric(horizontal: 8.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.r),
@@ -26,7 +26,7 @@ class FlashSaleItem extends StatelessWidget {
                   child: Image.network(
                     item.imageUrl,
 
-                    width: 180,
+                    width: 180.w,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -38,13 +38,13 @@ class FlashSaleItem extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
                   decoration: BoxDecoration(
                     color: Colors.red,
-                    borderRadius: BorderRadius.circular(8.r),
+                    borderRadius: BorderRadius.circular(5.r),
                   ),
                   child: Text(
                     '${item.discount}% off',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 12.sp,
+                      fontSize: 10.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -60,19 +60,19 @@ class FlashSaleItem extends StatelessWidget {
                 Text(
                   item.brand,
                   style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 10.sp,
                     color: Colors.grey,
                   ),
                 ),
-                SizedBox(height: 4.h),
+                SizedBox(height: 2.h),
                 Text(
                   item.name,
                   style: TextStyle(
-                    fontSize: 14.sp,
+                    fontSize: 12.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 4.h),
+                SizedBox(height: 2.h),
                 Row(
                   children: [
                     Text(
@@ -87,7 +87,7 @@ class FlashSaleItem extends StatelessWidget {
                     Text(
                       '\$${item.originalPrice.toStringAsFixed(2)}',
                       style: TextStyle(
-                        fontSize: 12.sp,
+                        fontSize: 10.sp,
                         color: Colors.grey,
                         decoration: TextDecoration.lineThrough,
                       ),
