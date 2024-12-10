@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test1/features/home/ui/wedgets/popular_products/horizontal_popular_priduct_list.dart';
@@ -11,7 +10,6 @@ import 'package:test1/features/product_details/wedgits/price_and_buy_now_section
 import 'package:test1/features/product_details/wedgits/product_info_widget.dart';
 import 'package:test1/features/product_details/wedgits/rating_summary.dart';
 
-import 'wedgits/alert_dialog.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   const ProductDetailsPage({super.key});
@@ -108,13 +106,13 @@ class ProductDetailsPage extends StatelessWidget {
                   ),
 
                   const LineSpaceWidget(),
-                 DialogName(title: 'Product Details', icon: Icons.shopping_bag),
-                  DialogName(title: 'Shopping Information', icon: Icons.directions_bus),
-                  DialogName(title: 'Returns', icon: Icons.backpack_outlined),
+                  const DialogName(title: 'Product Details', icon: Icons.shopping_bag),
+                  const DialogName(title: 'Shopping Information', icon: Icons.directions_bus),
+                  const DialogName(title: 'Returns', icon: Icons.backpack_outlined),
 
                   RatingSummaryWidget(averageRating: 3.4, totalReviews: 5, ratingsDistribution: const [0,0.1,0.2,0.3,0.8]),
                   const LineSpaceWidget(),
-                  DialogName(title: 'Reviews', icon: Icons.comment),
+                  const DialogName(title: 'Reviews', icon: Icons.comment),
                   /*===================================Similar Products Section==========================================*/
                   const Align(
                       alignment: Alignment.centerLeft,

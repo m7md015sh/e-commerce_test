@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:test1/features/home/ui/wedgets/grid_product/product_card.dart';
 import 'package:test1/features/product_details/product_details.dart';
 
 import 'popular_product_card.dart';
 
 
 class HorizontalProductList extends StatelessWidget {
+  const HorizontalProductList({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -19,10 +20,10 @@ class HorizontalProductList extends StatelessWidget {
             child: InkWell(onTap: (){
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) =>  ProductDetailsPage(),
+                  builder: (context) =>  const ProductDetailsPage(),
                 ),
               );
-            },child: PopularProductCard()),
+            },child: const PopularProductCard()),
           );
         },
       ),
