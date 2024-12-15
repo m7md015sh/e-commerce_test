@@ -63,12 +63,12 @@ class PopularProductCard extends StatelessWidget {
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text('LIPSY LONDON',
                         style: getRegularStyle(
                             color: ColorManager.grey, fontSize: 10.sp)),
-                    SizedBox(height: 4.h),
+                   // SizedBox(height: 4.h),
                     Text(
                       'Mountain Warehouse for ...',
                       style: getBoldStyle(

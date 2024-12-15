@@ -117,7 +117,7 @@ class ProductDetailsPage extends StatelessWidget {
                   const Align(
                       alignment: Alignment.centerLeft,
                       child: TextBeforeSection(text: 'Similar Products')),
-                  HorizontalProductList(),
+                  const HorizontalProductList(),
 
                   /*===================================Similar Products Section==========================================*/
 
