@@ -6,8 +6,8 @@ import 'package:test1/features/home/home_cubit/product_cubit/product_cubit.dart'
 import 'package:test1/features/home/home_cubit/product_cubit/product_state.dart';
 
 class ProductGridView extends StatelessWidget {
-  const ProductGridView({super.key});
-
+  const ProductGridView({super.key, this.onTap});
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProductCubit, ProductState>(
@@ -34,6 +34,7 @@ class ProductGridView extends StatelessWidget {
                   image: product.image,
                   price: product.price,
                   priceAfterDesc: product.discount.toDouble(),
+                  onTap: onTap,
                 );
               },
             ),

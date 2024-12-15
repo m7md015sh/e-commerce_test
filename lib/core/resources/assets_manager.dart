@@ -4,7 +4,7 @@ const String iconPath = "assets/icons";
 
 class ImageAssets {
   static const String loginDark = "$imagePath/login_dark.png";
-  static const String signupDark = "$imagePath/signup_dark.svg";
+  static const String signupDark = "$imagePath/signUp_dark.png";
   static const String flashSaleCounter = "$imagePath/flash_sale_counter.png";
 }
 class NetworkImages {

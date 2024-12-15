@@ -9,6 +9,7 @@ class ProductCard extends StatelessWidget {
   final String? brand;
   final double price;
   final double priceAfterDesc;
+  final void Function()? onTap;
 
   const ProductCard({
     super.key,
@@ -16,52 +17,55 @@ class ProductCard extends StatelessWidget {
     this.brand,
     required this.price,
     required this.priceAfterDesc,
-    required this.image,
+    required this.image, this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity, // Expand to full width of grid
-      decoration: BoxDecoration(
-        border: Border.all(
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: double.infinity, // Expand to full width of grid
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: ColorManager.white,
+            width: 1,
+          ),
+          borderRadius: BorderRadius.circular(16.r),
+        ),
+        child: Card(
           color: ColorManager.white,
-          width: 1,
-        ),
-        borderRadius: BorderRadius.circular(16.r),
-      ),
-      child: Card(
-        color: ColorManager.white,
-        elevation: 0.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.r),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-           //   flex: 2,
-              child: ClipRRect(
-                borderRadius: BorderRadius.vertical(
-                  top: Radius.circular(8.r),
-                ),
-                child: Image.network(
-                  image,
-                  fit: BoxFit.cover,
-                  height: 140.h,
-                  width: double.infinity,
+          elevation: 0.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.r),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+             //   flex: 2,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(8.r),
+                  ),
+                  child: Image.network(
+                    image,
+                    fit: BoxFit.cover,
+                    height: 140.h,
+                    width: double.infinity,
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-              child: DescriptionProduct(
-                name: name,
-                price: '\$$price',
-                priceAfterDesc: '\$${priceAfterDesc.toStringAsFixed(2)}',
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                child: DescriptionProduct(
+                  name: name,
+                  price: '\$$price',
+                  priceAfterDesc: '\$${priceAfterDesc.toStringAsFixed(2)}',
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

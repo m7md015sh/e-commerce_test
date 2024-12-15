@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test1/core/resources/assets_manager.dart';
+import 'package:test1/core/resources/strings_manager.dart';
 
 import 'package:test1/features/auth/widgets/stack_image_auth.dart';
 import 'package:test1/features/bottom_var_bar/bottom_var_bar_cubit.dart';
@@ -17,7 +18,7 @@ class LoginScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            StackImageAuth(text: 'Welcome back!',assetsImage: ImageAssets.loginDark,),
+            StackImageAuth(text: AppStrings.welcomeBack,assetsImage: ImageAssets.loginDark,),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -25,16 +26,16 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   const SizedBox(height: 20),
                   const Text(
-                    'Log in with your data that you entered during your registration.',
+                    AppStrings.loginSteps,
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.grey,
                     ),
                   ),
                   const SizedBox(height: 20),
-                  const CustomTextField(icon: Icons.email, labelText: 'Email'),
+                  const CustomTextField(icon: Icons.email, labelText: AppStrings.email),
                   const SizedBox(height: 20),
-                  const CustomTextField(icon: Icons.lock, labelText: 'Password'),
+                  const CustomTextField(icon: Icons.lock, labelText: AppStrings.password),
                   const SizedBox(height: 10),
                   Align(
                     alignment: Alignment.centerRight,
@@ -42,7 +43,7 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {
                         // Forgot password action
                       },
-                      child: const Text('Forgot password?'),
+                      child: const Text(AppStrings.forgotPassword),
                     ),
                   ),
                   const SizedBox(height: 20),
@@ -65,13 +66,13 @@ class LoginScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    child: const Text('Log in',style: TextStyle(color: Colors.white),),
+                    child: const Text(AppStrings.loginBtn,style: TextStyle(color: Colors.white),),
                   ),
                   const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text("Don't have an account?"),
+                      const Text(AppStrings.doNotHaveAccount),
                       TextButton(
                         onPressed: () {
 
@@ -81,7 +82,7 @@ class LoginScreen extends StatelessWidget {
                             ),
                           );
                         },
-                        child: const Text('Sign up'),
+                        child: const Text(AppStrings.signupBtn),
                       ),
                     ],
                   ),

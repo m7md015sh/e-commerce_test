@@ -4,8 +4,8 @@ import 'package:test1/core/static/test_items.dart';
 import 'package:test1/features/home/ui/wedgets/flash_sale/flash_sale_item.dart';
 
 class FlashSaleListView extends StatelessWidget {
-  const FlashSaleListView({super.key});
-
+  const FlashSaleListView({super.key, this.onTap});
+   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,7 +22,7 @@ class FlashSaleListView extends StatelessWidget {
                   constraints: BoxConstraints(
                     maxWidth: constraints.maxWidth * 0.4,
                   ),
-                  child: FlashSaleItem(item: items[index]),
+                  child: FlashSaleItem(item: items[index],onTap: onTap,),
                 );
               },
             );

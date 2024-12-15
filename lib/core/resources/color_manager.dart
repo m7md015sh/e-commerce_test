@@ -16,6 +16,7 @@ class ColorManager {
 
   // new colors
   static const Color darkPrimary =  Color(0xffd17d11);
+  static const Color blue =  Color(0xff117bd1);
   static const Color lightPrimary =  Color(0xCCd17d11); // color with 80% opacity
   static const Color grey1 =  Color(0xff707070);
   static const Color white =  Color(0xffFFFFFF);

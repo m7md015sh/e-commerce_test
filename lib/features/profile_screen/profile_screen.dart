@@ -27,9 +27,8 @@ class ProfileScreen extends StatelessWidget {
           const ProfileOptionItem(title: 'Orders',subTitle: 'Already have 12 order',),
           const ProfileOptionItem(title: 'Shipping Addresses',subTitle: '3 address',),
           const ProfileOptionItem(title: 'Payment methods',subTitle: 'Cash By Delivery',),
-          const ProfileOptionItem(title: 'Promocodes',subTitle: 'You have Special Promocodes',),
           const ProfileOptionItem(title: 'My Reviews',subTitle: 'reviews for 3 items ',),
-           ProfileOptionItem(title: 'Settings',subTitle: 'Notifications and Password',onPressed: (){
+           ProfileOptionItem(title: 'Logout',subTitle: 'To Logout from the Application',onPressed: (){
              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LoginScreen(),));
            },),
 

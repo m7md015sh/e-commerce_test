@@ -8,6 +8,7 @@ import 'package:test1/features/home/ui/wedgets/popular_products/horizontal_popul
 import 'package:test1/features/home/ui/wedgets/grid_product/product_grid_view.dart';
 import 'package:test1/features/home/ui/wedgets/flash_sale/flash_sale_horizontal_list_view.dart';
 import 'package:test1/features/home/ui/wedgets/text_before_section.dart';
+import 'package:test1/features/product_details/product_details.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -38,8 +39,12 @@ class HomeView extends StatelessWidget {
             const SliverToBoxAdapter(
               child: TextBeforeSection(text: AppStrings.popularProduct),
             ),
-            const SliverToBoxAdapter(
-              child: HorizontalProductList(),
+             SliverToBoxAdapter(
+              child: HorizontalProductList(onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                  return const ProductDetailsPage();
+                }));
+              },),
             ),
             /*===================================Popular Products Section==========================================*/
 
@@ -56,8 +61,12 @@ class HomeView extends StatelessWidget {
             const SliverToBoxAdapter(
               child: TextBeforeSection(text: AppStrings.flashSale),
             ),
-             const SliverToBoxAdapter(
-              child: FlashSaleListView(),
+              SliverToBoxAdapter(
+              child: FlashSaleListView(onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                  return const ProductDetailsPage();
+                }));
+              },),
             ),
             /*===================================Flash Sale Products Section==========================================*/
 
@@ -65,8 +74,12 @@ class HomeView extends StatelessWidget {
               child: TextBeforeSection(text: 'All Products'),
             ),
             // Grid View
-            const  SliverToBoxAdapter(
-              child:  ProductGridView(),
+              SliverToBoxAdapter(
+              child:  ProductGridView(onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                  return const ProductDetailsPage();
+                }));
+              },),
             ),
           ],
     );
