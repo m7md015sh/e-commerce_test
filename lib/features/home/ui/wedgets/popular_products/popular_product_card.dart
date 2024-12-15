@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:test1/core/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test1/core/resources/assets_manager.dart';
+import 'package:test1/core/resources/color_manager.dart';
+import 'package:test1/core/resources/styles_manager.dart';
 
 class PopularProductCard extends StatelessWidget {
   const PopularProductCard({super.key});
@@ -7,108 +10,90 @@ class PopularProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.white,
-      elevation: 0.0,
+      color: ColorManager.white,
+      elevation: 0.1,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: BorderRadius.circular(10.r),
       ),
-      child: Container(
-        decoration: BoxDecoration(
+      child: IntrinsicHeight(
+        child: Container(
+          decoration: BoxDecoration(
             border: Border.all(
-              color: ColorsManager.lighterGray,
-              width: 1,
+              color: ColorManager.lighterGray,
+              width: 1.w,
             ),
-            borderRadius: BorderRadius.circular(16.0)),
-        width: 250,
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          children: [
-            Expanded(
-              child: Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.network(
-                      'https://student.valuxapps.com/storage/uploads/products/1615442168bVx52.item_XXL_36581132_143760083.jpeg', // استبدل برابط الصورة
-                      height: 120,
-                      width: 120,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Positioned(
-                    top: 8,
-                    right: 8,
-                    child: Container(
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(10.0),
+            borderRadius: BorderRadius.circular(16.r),
+          ),
+          width: 250.w,
+          padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                child: Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8.r),
+                      child: Image.network(
+                        NetworkImages.test,
+                        height: 120.h,
+                        width: 120.w,
+                        fit: BoxFit.cover,
                       ),
-                      child: const Text(
-                        '20% off',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 8.0,
+                    ),
+                    Positioned(
+                      top: 8.h,
+                      right: 8.w,
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 8.w, vertical: 4.h),
+                        decoration: BoxDecoration(
+                          color: ColorManager.red,
+                          borderRadius: BorderRadius.circular(10.r),
                         ),
+                        child: Text('20% off',
+                            style: getBoldStyle(
+                                color: ColorManager.white, fontSize: 12.sp)),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(width: 8.0),
-            const Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 8.0),
-                  Text(
-                    'LIPSY LONDON',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 10.0,
-                      fontWeight: FontWeight.bold,
+              SizedBox(width: 8.w),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('LIPSY LONDON',
+                        style: getRegularStyle(
+                            color: ColorManager.grey, fontSize: 10.sp)),
+                    SizedBox(height: 4.h),
+                    Text(
+                      'Mountain Warehouse for ...',
+                      style: getBoldStyle(
+                          color: ColorManager.black, fontSize: 14.sp),
+                      maxLines: 2,
                     ),
-                  ),
-                  SizedBox(height: 4.0),
-                  Text(
-                    'Mountain Warehouse for ...',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.bold,
-                      overflow: TextOverflow.ellipsis,
+                    Row(
+                      children: [
+                        Text('\$420.0',
+                            style:
+                                getBoldStyle(color: ColorManager.primaryColor)),
+                        SizedBox(width: 8.w),
+                        Text(
+                          '\$410.0',
+                          style: getRegularStyle(
+                                  color: ColorManager.grey, fontSize: 10.sp)
+                              .copyWith(decoration: TextDecoration.lineThrough),
+                        ),
+                      ],
                     ),
-                    maxLines: 2,
-                  ),
-                  SizedBox(height: 8.0),
-                  Row(
-                    children: [
-                      Text(
-                        '\$420.0',
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(width: 8.0),
-                      Text(
-                        '\$410.0',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 11.0,
-                          decoration: TextDecoration.lineThrough,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            )
-          ],
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

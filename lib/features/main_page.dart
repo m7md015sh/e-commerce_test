@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test1/core/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test1/core/resources/color_manager.dart';
+import 'package:test1/core/resources/strings_manager.dart';
+import 'package:test1/core/resources/styles_manager.dart';
 import 'package:test1/features/bottom_var_bar/bottom_var_bar_cubit.dart';
 import 'package:test1/features/cart_screen/cart_screen.dart';
 import 'package:test1/features/categories_screen/categories_screen.dart';
@@ -35,16 +38,18 @@ class MainScreen extends StatelessWidget {
     const ProfileScreen(),
   ];
 
-   MainScreen({super.key});
+  MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
-        appBar: AppBar(title: const Text('Fashion Store'),actions: [
-          IconButton(onPressed: (){}, icon: const Icon(Icons.search,)),
-          IconButton(onPressed: (){}, icon: const Icon(Icons.notifications,)),
-        ],),
+      appBar: AppBar(title:  Text(AppStrings.appName,style: getBoldStyle(
+        color: ColorManager.blackWithObesityDarker,fontSize: 22.sp
+      ),),actions: [
+        IconButton(onPressed: (){}, icon: const Icon(Icons.search,)),
+        IconButton(onPressed: (){}, icon: const Icon(Icons.notifications,)),
+      ],),
 
       body: BlocBuilder<BottomNavCubit, int>(
         builder: (context, state) {
@@ -59,7 +64,7 @@ class MainScreen extends StatelessWidget {
             onTap: (index) {
               context.read<BottomNavCubit>().updateIndex(index);
             },
-            selectedItemColor: ColorsManager.mainBlue,
+            selectedItemColor: ColorManager.primaryColor,
             unselectedItemColor: Colors.black,
             selectedLabelStyle: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
             unselectedLabelStyle: const TextStyle(fontSize: 12),

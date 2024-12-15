@@ -10,7 +10,7 @@ class CategoriesWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 12,),
       child: SizedBox(
-        height: 45.h,
+        height: 45.w,
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: [

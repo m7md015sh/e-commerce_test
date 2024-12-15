@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:test1/core/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test1/core/resources/color_manager.dart';
+import 'package:test1/core/resources/styles_manager.dart';
 
 class TextBeforeSection extends StatelessWidget {
-  const TextBeforeSection({Key? key, required this.text}) : super(key: key);
+  const TextBeforeSection({super.key, required this.text});
   final String text;
   @override
   Widget build(BuildContext context) {
@@ -12,12 +14,9 @@ class TextBeforeSection extends StatelessWidget {
         horizontal: 8,
         vertical: 12
       ),
-      child: Text(text,style: const TextStyle(
-        color: ColorsManager.gray,
-        fontWeight: FontWeight.bold,
-        fontSize: 18,
+      child: Text(text,style: getBoldStyle(color: ColorManager.grey,fontSize: 18.sp),
 
-      ),),
+      ),
     );
   }
 }

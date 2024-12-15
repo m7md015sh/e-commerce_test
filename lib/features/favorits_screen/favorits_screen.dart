@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:test1/features/favorits_screen/widgets/favoraite_filters_widgets.dart';
-import 'package:test1/features/favorits_screen/widgets/favorite_list_view.dart';
 import 'package:test1/features/home/ui/wedgets/categories/categories_horizontal_list_view.dart';
+
+import 'widgets/favoraite_filters_widgets.dart';
+import 'widgets/favorite_list_view.dart';
 
 class FavoritesScreen extends StatelessWidget {
   const FavoritesScreen({super.key});
@@ -24,7 +25,7 @@ class FavoritesScreen extends StatelessWidget {
               child: const FavoriteFilterWidget(),
             ),
           ),
-          const FavoriteListView(), // هنا نقوم بإضافة SliverList
+          const FavoriteListView() ,
         ],
       ),
     );

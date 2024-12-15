@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test1/core/resources/color_manager.dart';
+import 'package:test1/core/resources/styles_manager.dart';
 
 class CategoryButton extends StatelessWidget {
   final String text;
   final bool isSelected;
   final IconData? icon;
 
-  CategoryButton({
+  const CategoryButton({
+    super.key,
     required this.text,
     this.isSelected = false,
     this.icon,
@@ -17,25 +20,24 @@ class CategoryButton extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
       decoration: BoxDecoration(
-        color: isSelected ? Color(0xff7b64f3) : Colors.white,
+        color: isSelected ? ColorManager.primaryColor : ColorManager.white,
         borderRadius: BorderRadius.circular(30.r),
-        border: Border.all(color: Colors.grey),
+        border: Border.all(color: ColorManager.grey),
       ),
       child: Row(
         children: [
           if (icon != null)
             Icon(
               icon,
-              color: isSelected ? Colors.white : Colors.black,
+              color: isSelected ? ColorManager.white : ColorManager.black,
               size: 16.sp,
             ),
           if (icon != null) SizedBox(width: 5.w),
           Text(
             text,
-            style: TextStyle(
-              color: isSelected ? Colors.white : Colors.black,
+            style: getBoldStyle(
+              color: isSelected ? ColorManager.white : ColorManager.black,
               fontSize: 13.sp,
-              fontWeight: FontWeight.bold,
             ),
           ),
         ],

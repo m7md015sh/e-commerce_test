@@ -1,55 +1,59 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test1/core/resources/color_manager.dart';
+import 'package:test1/core/resources/styles_manager.dart';
 
-class Description_Product extends StatelessWidget {
-  Description_Product({Key? key, this.name, this.prand, this.price, this.price_after_desc}) : super(key: key);
-   final name;
-   final prand;
-   final price;
-   final price_after_desc;
+class DescriptionProduct extends StatelessWidget {
+  const DescriptionProduct({
+    super.key,
+    required this.name,
+    this.brand,
+    required this.price,
+    required this.priceAfterDesc,
+  });
+  final String name;
+  final String? brand;
+  final String price;
+  final String priceAfterDesc;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 8.0),
+        const SizedBox(height: 8.0),
         Text(
           'LIPSY LONDON',
-          style: TextStyle(
-            color: Colors.grey,
-            fontSize: 10.0,
-            fontWeight: FontWeight.bold,
+          style: getRegularStyle(
+            color: ColorManager.grey,
+            fontSize: 10.sp,
           ),
         ),
-        SizedBox(height: 4.0),
+        const SizedBox(height: 4.0),
         Text(
-         name!=null? name: 'Mountain Warehouse for ...',
-    
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 14.0,
-            fontWeight: FontWeight.bold,
-    
-            overflow: TextOverflow.ellipsis,
-          ),
+          name,
+          style: getBoldStyle(
+            color: ColorManager.black,
+            fontSize: 14.sp,
+          ).copyWith(overflow: TextOverflow.ellipsis),
           maxLines: 2,
         ),
-        SizedBox(height: 8.0),
+        const SizedBox(height: 8.0),
         Row(
           children: [
             Text(
-              price!=null?price:'\$420.0',
-              style: TextStyle(
-                color: Colors.blue,
-                fontSize: 12.0,
-                fontWeight: FontWeight.bold,
+              price,
+              style: getBoldStyle(
+                color: ColorManager.primaryColor,
+                fontSize: 12.sp,
               ),
             ),
-            SizedBox(width: 8.0),
+            const SizedBox(width: 8.0),
             Text(
-              price_after_desc!=null?price_after_desc:'\$410.0',
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 11.0,
+              priceAfterDesc,
+              style: getRegularStyle(
+                color: ColorManager.grey,
+                fontSize: 10.sp,
+              ).copyWith(
                 decoration: TextDecoration.lineThrough,
               ),
             ),

@@ -1,99 +1,107 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test1/core/resources/color_manager.dart';
+import 'package:test1/core/resources/styles_manager.dart';
 import 'package:test1/features/home/data/models/flash_sale_model.dart';
 
 class FlashSaleItem extends StatelessWidget {
-   FlashSaleItem({Key? key, required this.item}) : super(key: key);
-   final FlashSaleModel item;
+  const FlashSaleItem({super.key, required this.item});
+
+  final FlashSaleModel item;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 160.w, // Adjust width as needed
+      width: 160.w,
       margin: EdgeInsets.symmetric(horizontal: 8.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.r),
-        border: Border.all(color: Colors.grey.shade300),
+        border: Border.all(color: ColorManager.lighterMoreGray),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.all( Radius.circular(12.r)),
-                  child: Image.network(
-                    item.imageUrl,
-
-                    width: 180.w,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              Positioned(
-                top: 20.h,
-                right: 20.w,
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(5.r),
-                  ),
-                  child: Text(
-                    '${item.discount}% off',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 10.sp,
-                      fontWeight: FontWeight.bold,
+          Flexible(
+            flex: 2,
+            child: Stack(
+              children: [
+                Padding(
+                  padding:
+                  EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(12.r)),
+                    child: Image.network(
+                      item.imageUrl,
+                      width: double.infinity,
+                      height: double.infinity,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
-              ),
-            ],
+                Positioned(
+                  top: 10.h,
+                  right: 10.w,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 8.w, vertical: 4.h),
+                    decoration: BoxDecoration(
+                      color: ColorManager.red,
+                      borderRadius: BorderRadius.circular(5.r),
+                    ),
+                    child: Text('${item.discount}% off',
+                        style: getBoldStyle(
+                            color: ColorManager.white, fontSize: 10.sp)),
+                  ),
+                ),
+              ],
+            ),
           ),
           Padding(
             padding: EdgeInsets.all(8.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  item.brand,
-                  style: TextStyle(
-                    fontSize: 10.sp,
-                    color: Colors.grey,
-                  ),
-                ),
-                SizedBox(height: 2.h),
-                Text(
-                  item.name,
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 2.h),
+                Text(item.brand,
+                    style: getBoldStyle(
+                        color: ColorManager.grey, fontSize: 10.sp)),
+                SizedBox(height: 4.h),
+                Text(item.name,
+                    style: getBoldStyle(
+                        color: ColorManager.black, fontSize: 12.sp)),
+                SizedBox(height: 4.h),
                 Row(
                   children: [
-                    Text(
-                      '\$${item.price.toStringAsFixed(2)}',
-                      style: TextStyle(
-                        fontSize: 12.sp,
-                        color: Colors.blue,
-                        fontWeight: FontWeight.bold,
+                    Flexible(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          '\$${item.price.toStringAsFixed(1)}',
+                          style: getBoldStyle(
+                            color: ColorManager.primaryColor,
+                            fontSize: 12.sp,
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(width: 8.w),
-                    Text(
-                      '\$${item.originalPrice.toStringAsFixed(2)}',
-                      style: TextStyle(
-                        fontSize: 10.sp,
-                        color: Colors.grey,
-                        decoration: TextDecoration.lineThrough,
+                    Flexible(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          '\$${item.originalPrice.toStringAsFixed(1)}',
+                          style: getRegularStyle(
+                            color: ColorManager.grey,
+                            fontSize: 10.sp,
+                          ).copyWith(
+                            decoration: TextDecoration.lineThrough,
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
+
+
               ],
             ),
           ),

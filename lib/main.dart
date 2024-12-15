@@ -10,17 +10,19 @@ import 'package:test1/features/home/data/repos/home_repo_imp.dart';
 import 'package:test1/features/home/home_cubit/carusal_cubit/carusal_cubit.dart';
 import 'package:test1/features/home/home_cubit/product_cubit/product_cubit.dart';
 import 'package:test1/features/main_page.dart';
-import 'features/home/ui/home_view.dart';
+import 'package:test1/main_page_cubit/main_page_cubit.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(375, 812),  // استخدم الأبعاد القياسية لشاشة التصميم
+      designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
@@ -53,6 +55,8 @@ class MyApp extends StatelessWidget {
                 ),
               )..fetchCategoriesCubit(),
             ),
+            BlocProvider(create: (context)=> MainPageCubit()),
+            BlocProvider(create: (context)=> BottomNavCubit ())
           ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
@@ -60,12 +64,9 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
-            home: BlocProvider(
-              create: (_) => BottomNavCubit(),
-              child: MainScreen(),
+            home:  MainScreen(),
             ),
-          ),
-        );
+          );
       },
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test1/core/resources/assets_manager.dart';
 import 'package:test1/features/auth/login_screen.dart';
 
 import 'widgets/custom_text_field.dart';
@@ -17,7 +18,7 @@ class SignUpScreen extends StatelessWidget {
           body: SingleChildScrollView(
             child: Column(
               children: [
-                StackImageAuth(text: "Let's get started!",assetsImage: 'assets/images/signUp_dark.png',),
+                StackImageAuth(text: "Let's get started!",assetsImage: ImageAssets.signupDark,),
                 Padding(
                   padding: EdgeInsets.all(16.0.w),
                   child: Column(
@@ -117,7 +118,7 @@ class SignUpScreen extends StatelessWidget {
                             onPressed: () {
                               Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(
-                                  builder: (context) =>  LoginScreen(),
+                                  builder: (context) =>  const LoginScreen(),
                                 ),
                               );
                             },

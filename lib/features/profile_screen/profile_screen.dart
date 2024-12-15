@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test1/features/auth/login_screen.dart';
 import 'package:test1/features/profile_screen/widgets/profile_option_item.dart';
 
 import 'widgets/user_porifile_avatar_widget.dart';
@@ -28,7 +29,9 @@ class ProfileScreen extends StatelessWidget {
           const ProfileOptionItem(title: 'Payment methods',subTitle: 'Cash By Delivery',),
           const ProfileOptionItem(title: 'Promocodes',subTitle: 'You have Special Promocodes',),
           const ProfileOptionItem(title: 'My Reviews',subTitle: 'reviews for 3 items ',),
-          const ProfileOptionItem(title: 'Settings',subTitle: 'Notifications and Password',),
+           ProfileOptionItem(title: 'Settings',subTitle: 'Notifications and Password',onPressed: (){
+             Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LoginScreen(),));
+           },),
 
 
 

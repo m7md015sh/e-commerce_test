@@ -13,8 +13,8 @@ class TextAndIcon extends StatelessWidget {
       child: Row(
         children: [
           SvgPicture.asset(iconAsset,
-          width: 20,
-            height: 18,
+          width: 20.w,
+            height: 18.h,
           ),
           Padding(
             padding:  EdgeInsets.symmetric(horizontal: 16.w),

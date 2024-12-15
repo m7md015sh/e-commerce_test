@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test1/core/resources/assets_manager.dart';
 
 import 'package:test1/features/auth/widgets/stack_image_auth.dart';
-import 'package:test1/features/home/ui/home_view.dart';
+import 'package:test1/features/bottom_var_bar/bottom_var_bar_cubit.dart';
 import 'package:test1/features/auth/sign_up_screen.dart';
+import 'package:test1/features/main_page.dart';
 
 import 'widgets/custom_text_field.dart';
 class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            StackImageAuth(text: 'Welcome back!',assetsImage: 'assets/images/login_dark.png',),
+            StackImageAuth(text: 'Welcome back!',assetsImage: ImageAssets.loginDark,),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -43,11 +48,15 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).pushReplacement(
+                      Navigator.pushAndRemoveUntil(context,
                         MaterialPageRoute(
-                          builder: (context) => const HomeView(),
+                          builder: (context) =>  MainScreen(),
+
                         ),
+                        (route) => false,
                       );
+                      context.read<BottomNavCubit>().updateIndex(0);
+
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xff7b64f3),
@@ -65,9 +74,10 @@ class LoginScreen extends StatelessWidget {
                       const Text("Don't have an account?"),
                       TextButton(
                         onPressed: () {
+
                           Navigator.of(context).pushReplacement(
                             MaterialPageRoute(
-                              builder: (context) =>  SignUpScreen(),
+                              builder: (context) =>  const SignUpScreen(),
                             ),
                           );
                         },
