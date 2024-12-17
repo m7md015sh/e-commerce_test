@@ -4,13 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CategoryButton extends StatelessWidget {
   final String text;
   final bool isSelected;
-  final IconData? icon;
+  //final IconData? icon;
 
   const CategoryButton({
     super.key,
     required this.text,
     this.isSelected = false,
-    this.icon,
+    //this.icon,
   });
 
   @override
@@ -18,19 +18,19 @@ class CategoryButton extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
       decoration: BoxDecoration(
-        color: isSelected ? Color(0xff7b64f3) : Colors.white,
+        color: isSelected ? const Color(0xff7b64f3) : Colors.white,
         borderRadius: BorderRadius.circular(30.r),
         border: Border.all(color: Colors.grey),
       ),
       child: Row(
         children: [
-          if (icon != null)
-            Icon(
-              icon,
-              color: isSelected ? Colors.white : Colors.black,
-              size: 16.sp,
-            ),
-          if (icon != null) SizedBox(width: 5.w),
+          // if (icon != null)
+          //   Icon(
+          //     icon,
+          //     color: isSelected ? Colors.white : Colors.black,
+          //     size: 16.sp,
+          //   ),
+          // if (icon != null) SizedBox(width: 5.w),
           Text(
             text,
             style: TextStyle(

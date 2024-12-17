@@ -18,7 +18,8 @@ class HomeView extends StatelessWidget {
     return BlocProvider(
       create: (context) => HomeCubit()
         ..getBannerHome()
-        ..getAllProducts(),
+        ..getAllProducts()
+        ..getAllCategories(),
       child: CustomScrollView(
         slivers: [
           /*===================================Carousal Section==========================================*/

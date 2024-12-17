@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test1/features/home/home_cubit/home_cubit.dart';
+import 'package:test1/features/home/home_cubit/home_states.dart';
 import 'package:test1/features/home/ui/wedgets/categories/categories_item.dart';
 
 class CategoriesWidget extends StatelessWidget {
@@ -7,41 +10,55 @@ class CategoriesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final HomeCubit cubit = context.read<HomeCubit>();
+
     return Padding(
-      padding: const EdgeInsets.only(
-        left: 12,
-      ),
-      child: SizedBox(
-        height: 45.h,
-        child: ListView(
-          scrollDirection: Axis.horizontal,
-          children: [
-            CategoryButton(
-              text: 'All Categories',
-              isSelected: true,
-            ),
-            SizedBox(width: 10.w),
-            CategoryButton(
-              text: 'On Sale',
-              icon: Icons.local_offer,
-            ),
-            SizedBox(width: 10.w),
-            CategoryButton(
-              text: "Man's",
-              icon: Icons.male,
-            ),
-            SizedBox(width: 10.w),
-            CategoryButton(
-              text: 'Woman',
-              icon: Icons.female,
-            ),
-            SizedBox(width: 10.w),
-            CategoryButton(
-              text: 'children',
-              icon: Icons.child_care_sharp,
-            ),
-          ],
-        ),
+      padding: const EdgeInsets.only(left: 12),
+      child: BlocBuilder<HomeCubit, HomeStates>(
+        buildWhen: (previous, current) =>
+            current is LoadingCategoriesStates ||
+            current is SuccessCategoriesStates ||
+            current is ErrorCategoriesStates,
+        builder: (context, state) {
+          if (state is LoadingCategoriesStates) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (state is ErrorCategoriesStates) {
+            return Center(
+              child: Text(
+                state.error,
+                style: TextStyle(fontSize: 16.sp, color: Colors.red),
+              ),
+            );
+          } else if (state is SuccessCategoriesStates) {
+            // final categories = context.read<HomeCubit>().categoriesModel?.data;
+
+            // if (categories == null || categories.isEmpty) {
+            //   return Center(
+            //     child: Text(
+            //       'No Categories Available',
+            //       style: TextStyle(fontSize: 16.sp),
+            //     ),
+            //   );
+            // }
+
+            return SizedBox(
+              height: 45.h,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemCount: cubit.categoriesModel!.data!.length,
+                separatorBuilder: (context, index) => SizedBox(width: 10.w),
+                itemBuilder: (context, index) {
+                  final allCategry = cubit.categoriesModel!.data![index];
+                  return CategoryButton(
+                    text: allCategry.name!,
+                    isSelected: index == 0,
+                  );
+                },
+              ),
+            );
+          }
+          return const SizedBox();
+        },
       ),
     );
   }
