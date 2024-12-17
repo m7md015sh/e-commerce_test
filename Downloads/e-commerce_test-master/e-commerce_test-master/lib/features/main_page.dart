@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test1/core/core/utils/colors.dart';
+import 'package:test1/core/utils/colors.dart';
 import 'package:test1/features/bottom_var_bar/bottom_var_bar_cubit.dart';
 import 'package:test1/features/cart_screen/cart_screen.dart';
-import 'package:test1/features/categories_screen/categories_screen.dart';
 import 'package:test1/features/favorits_screen/favorits_screen.dart';
 import 'package:test1/features/home/ui/home_view.dart';
 import 'package:test1/main_page_cubit/main_page_cubit.dart';

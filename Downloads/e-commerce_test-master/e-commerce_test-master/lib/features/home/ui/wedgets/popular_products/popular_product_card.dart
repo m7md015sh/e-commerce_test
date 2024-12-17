@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test1/core/core/utils/colors.dart';
+import 'package:test1/core/utils/colors.dart';
 
 class PopularProductCard extends StatelessWidget {
   const PopularProductCard({super.key});

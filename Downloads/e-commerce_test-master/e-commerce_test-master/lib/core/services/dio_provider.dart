@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:test1/core/core/constants/constatnts.dart';
+import 'package:test1/core/constants/constatnts.dart';
 
 class DioProvider {
   static late Dio dio;
@@ -7,8 +7,8 @@ class DioProvider {
     dio = Dio(
       BaseOptions(
         baseUrl: AppConstants.baseUrl,
-        connectTimeout: Duration(seconds: 30),
-        receiveTimeout: Duration(seconds: 30),
+        connectTimeout: const Duration(seconds: 30),
+        receiveTimeout: const Duration(seconds: 30),
       ),
     );
   }

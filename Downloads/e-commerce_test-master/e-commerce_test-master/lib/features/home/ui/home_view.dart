@@ -5,8 +5,8 @@ import 'package:test1/features/home/home_cubit/home_cubit.dart';
 import 'package:test1/features/home/ui/wedgets/carousal_widget.dart';
 import 'package:test1/features/home/ui/wedgets/categories/categories_horizontal_list_view.dart';
 import 'package:test1/features/home/ui/wedgets/flash_sale/super_flash_sale_counter.dart';
-import 'package:test1/features/home/ui/wedgets/popular_products/horizontal_popular_priduct_list.dart';
 import 'package:test1/features/home/ui/wedgets/grid_product/product_grid_view.dart';
+import 'package:test1/features/home/ui/wedgets/popular_products/horizontal_popular_priduct_list.dart';
 import 'package:test1/features/home/ui/wedgets/flash_sale/flash_sale_horizontal_list_view.dart';
 import 'package:test1/features/home/ui/wedgets/text_before_section.dart';
 
@@ -16,17 +16,18 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit()..getBannerHome(),
+      create: (context) => HomeCubit()
+        ..getBannerHome()
+        ..getAllProducts(),
       child: CustomScrollView(
         slivers: [
           /*===================================Carousal Section==========================================*/
           SliverToBoxAdapter(
             child: SizedBox(
               height: 250.h,
-              child: CarouselScreen(),
+              child: const CarouselScreen(),
             ),
           ),
-          /*===================================Carousal Section==========================================*/
 
           /*===================================Categorise Section==========================================*/
           const SliverToBoxAdapter(
@@ -41,7 +42,7 @@ class HomeView extends StatelessWidget {
           const SliverToBoxAdapter(
             child: TextBeforeSection(text: 'Popular Products'),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: HorizontalProductList(),
           ),
           /*===================================Popular Products Section==========================================*/
@@ -69,8 +70,8 @@ class HomeView extends StatelessWidget {
           ),
           // Grid View
           const SliverToBoxAdapter(
-              //child: ProductGridView(),
-              ),
+            child: ProductGridView(),
+          ),
         ],
       ),
     );

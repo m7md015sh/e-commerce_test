@@ -6,7 +6,8 @@ class CategoryButton extends StatelessWidget {
   final bool isSelected;
   final IconData? icon;
 
-  CategoryButton({
+  const CategoryButton({
+    super.key,
     required this.text,
     this.isSelected = false,
     this.icon,

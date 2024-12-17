@@ -11,3 +11,11 @@ class ErrorBannerHomeStates extends HomeStates {
   final String error;
   ErrorBannerHomeStates(this.error);
 }
+class LoadinggetAllProductsStates extends HomeStates {}
+
+class SuccessgetAllProductsStates extends HomeStates {}
+
+class ErrorgetAllProductsStates extends HomeStates {
+  final String error;
+  ErrorgetAllProductsStates(this.error);
+}

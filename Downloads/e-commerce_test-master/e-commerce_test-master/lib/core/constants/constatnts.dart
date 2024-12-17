@@ -4,7 +4,7 @@ class AppConstants {
   ///////////////// BaseUrl//////////////////////////////
   static String baseUrl = 'https://ecommerce-api.ammarelgendy.com/api/v1/';
   static const String bannerHome = 'bunners';
-
+  static const String allProducts = 'products';
   static String login = 'login';
   static String register = 'register';
 

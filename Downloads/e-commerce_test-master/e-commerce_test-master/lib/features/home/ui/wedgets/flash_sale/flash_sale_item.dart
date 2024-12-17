@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test1/features/home/data/models/flash_sale_model.dart';
 
 class FlashSaleItem extends StatelessWidget {
-  FlashSaleItem({Key? key, required this.item}) : super(key: key);
+  const FlashSaleItem({super.key, required this.item});
   final FlashSaleModel item;
   @override
   Widget build(BuildContext context) {

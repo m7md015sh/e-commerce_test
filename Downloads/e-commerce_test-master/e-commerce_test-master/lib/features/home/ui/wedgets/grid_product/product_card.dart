@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:test1/core/core/utils/colors.dart';
+import 'package:test1/core/utils/colors.dart';
 
 import 'package:test1/features/home/ui/wedgets/description_product.dart';
 
@@ -11,10 +11,11 @@ class ProductCard extends StatelessWidget {
   final price;
   final price_after_desc;
 
-  ProductCard({
+  const ProductCard({super.key, 
     this.name,
     this.prand,
     this.price,
+    // ignore: non_constant_identifier_names
     this.price_after_desc,
     this.image,
   });
@@ -50,7 +51,7 @@ class ProductCard extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Description_Product(
                 name: '$name',
                 price: '$price',

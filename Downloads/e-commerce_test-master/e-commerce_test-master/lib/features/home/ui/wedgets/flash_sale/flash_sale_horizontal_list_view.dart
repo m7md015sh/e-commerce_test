@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:test1/features/home/ui/wedgets/flash_sale/flash_sale_item.dart';
 
 class FlashSaleListView extends StatelessWidget {
   const FlashSaleListView({super.key});

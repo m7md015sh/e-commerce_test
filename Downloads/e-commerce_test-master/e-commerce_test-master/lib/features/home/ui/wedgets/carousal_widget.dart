@@ -23,6 +23,7 @@ class _CarouselScreenState extends State<CarouselScreen> {
 
     return Scaffold(
       body: BlocBuilder<HomeCubit, HomeStates>(
+        buildWhen: (previous, current) => current is LoadingBannerHomeStates || current is SuccessBannerHomeStates , 
         builder: (context, state) {
           if (state is LoadingBannerHomeStates) {
             return const Center(child: CircularProgressIndicator());
