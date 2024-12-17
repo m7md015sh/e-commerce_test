@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test1/features/home/data/models/home_models.dart';
 import 'package:test1/features/home/data/models/response_allproducts_model/products_model_response/products_model_response.dart';
 import 'package:test1/features/home/data/models/response_banner_model/banner_model/banner_model.dart';
 import 'package:test1/features/home/data/repos/home_repo_imp.dart';
@@ -33,10 +32,10 @@ class HomeCubit extends Cubit<HomeStates> {
     Future<void> getAllProducts() async {
     emit(LoadinggetAllProductsStates()); // Emit loading state
     try {
-      final value = await HomeRepo.bannerHome();
+      final value = await HomeRepo.allProducts();
 
       if (value != null) {
-        bannerModel = value;
+        productModel = value;
         emit(SuccessgetAllProductsStates()); // Emit success state
       } else {
         emit(ErrorgetAllProductsStates('Products fetch failed'));

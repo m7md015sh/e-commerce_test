@@ -12,18 +12,14 @@ class ProductGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final HomeCubit cubit = context.read<HomeCubit>();
+
     return BlocBuilder<HomeCubit, HomeStates>(
       buildWhen: (previous, current) =>
           current is SuccessgetAllProductsStates ||
           current is LoadinggetAllProductsStates ||
           current is ErrorgetAllProductsStates,
       builder: (context, state) {
-        final HomeCubit cubit = context.read<HomeCubit>();
-
-        if (state is LoadinggetAllProductsStates) {
-          return const Center(child: CircularProgressIndicator());
-        }
-
         if (state is ErrorgetAllProductsStates) {
           return Center(
             child: Text(
@@ -31,19 +27,9 @@ class ProductGridView extends StatelessWidget {
               style: TextStyle(fontSize: 16.sp),
             ),
           );
-        }
-
-        if (state is SuccessgetAllProductsStates) {
-          if (cubit.productModel?.data?.data == null ||
-              cubit.productModel!.data!.data!.isEmpty) {
-            return Center(
-              child: Text(
-                'No products found',
-                style: TextStyle(fontSize: 16.sp),
-              ),
-            );
-          }
-
+        } else if (state is SuccessgetAllProductsStates) {
+          // if (cubit.productModel?.data?.data == null ||
+          //     cubit.productModel!.data!.data!.isEmpty) {
           return Container(
             padding: EdgeInsets.all(8.0.w),
             child: GridView.builder(
@@ -55,7 +41,7 @@ class ProductGridView extends StatelessWidget {
                 mainAxisSpacing: 8.0.h,
                 childAspectRatio: 1.w / 1.6.h,
               ),
-              itemCount: cubit.productModel!.data!.data!.length,
+              itemCount: cubit.productModel!.data?.data!.length,
               itemBuilder: (context, index) {
                 final product = cubit.productModel!.data!.data![index];
                 return GestureDetector(
@@ -72,10 +58,9 @@ class ProductGridView extends StatelessWidget {
               },
             ),
           );
+        } else {
+          return const Center(child: CircularProgressIndicator());
         }
-
-        // Default fallback for unexpected states
-        return const SizedBox.shrink();
       },
     );
   }
